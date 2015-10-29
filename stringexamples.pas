@@ -8,6 +8,9 @@ var
     SubStrings: TStringList;
     SubString: String;
     FooPattern: TRegExpr;
+
+    SubjectStr: String;
+    NewStr: String;
 begin
     // Splitting strings
     try
@@ -23,8 +26,17 @@ begin
 
     // Regex replacement
     try
+        SubjectStr := 'Foo:Bar';
+
         FooPattern := TRegExpr.Create();
-        FooPattern.Expression := '';
+        FooPattern.Expression := '(.*):(.*)';
+        WriteLn('Before replace: ' + SubjectStr);
+        try
+            NewStr := FooPattern.Replace(SubjectStr, 'The string contained $1 and $2', True);
+        except
+            WriteLn('Failed to replace!');
+        end;
+        WriteLn('After replace:  ' + NewStr)
     finally
         FooPattern.Free;
     end;
