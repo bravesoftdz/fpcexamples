@@ -17,4 +17,5 @@ begin
     do
         WriteLn('SubString: ' + SubString);
     end.
+    SubStrings.Free
 end.
