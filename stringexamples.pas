@@ -5,8 +5,8 @@ uses
     classes, strings, strutils;
 
 var
-  SubStrings: TStringList;
-  SubString: String;
+    SubStrings: TStringList;
+    SubString: String;
 begin
     // Splitting strings
     SubStrings := TStringList.Create;
